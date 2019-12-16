@@ -17,7 +17,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: docker test
-      with:
+      env:
         DOCKER_USER_NAME: ${{secrets.DOCKER_USER_NAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
