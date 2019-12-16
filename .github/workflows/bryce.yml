@@ -10,17 +10,21 @@ jobs:
         node-version: [8.x, 10.x, 12.x]
     steps:
     - uses: actions/checkout@v1
+
     - name: test github acitons
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+  
     - name: docker test
       run: |
         node -v
         docker images
+        echo $DOCKER_USER_NAME
     - name: change directory
       working-directory: './golang'
       run: |
         ls
       env:
         CI: true
+      
