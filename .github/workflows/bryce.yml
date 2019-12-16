@@ -23,7 +23,7 @@ jobs:
       run: |
         node -v
         docker -v
-        docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         docker pull guygubaby/nexhome-firmware-server
 
     - name: change directory
