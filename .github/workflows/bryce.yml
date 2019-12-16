@@ -15,17 +15,19 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-  
+
     - name: docker test
-      env:
+      with:
         DOCKER_USER_NAME: ${{secrets.DOCKER_USER_NAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
         node -v
-        echo $DOCKER_USER_NAME
+        docker -v
+        docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+        docker pull guygubaby/nexhome-firmware-server
     - name: change directory
       working-directory: './golang'
       run: |
         ls
       env:
         CI: true
-      
