@@ -17,9 +17,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
   
     - name: docker test
+      env:
+        DOCKER_USER_NAME: ${{secrets.DOCKER_USER_NAME}}
       run: |
         node -v
-        docker images
         echo $DOCKER_USER_NAME
     - name: change directory
       working-directory: './golang'
