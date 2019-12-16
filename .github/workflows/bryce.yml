@@ -18,7 +18,7 @@ jobs:
 
     - name: docker test
       env:
-        DOCKER_USER_NAME: ${{secrets.DOCKER_USER_NAME}}
+        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
         node -v
